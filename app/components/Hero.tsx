@@ -3,40 +3,28 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import {
-  ArrowRight,
-  Download,
-  Github,
-  Linkedin,
-  MessageCircle,
-  Code2,
-  Smartphone,
-  Palette,
-  Globe,
-  Database,
-  Layers,
+  ArrowRight, Eye, Github, Linkedin, MessageCircle,
+  Code2, Smartphone, Palette, Globe, Database, Layers,
 } from "lucide-react";
+import { scrollTo } from "../lib/constants";
 
 const floatingIcons = [
-  { Icon: Code2, top: "15%", left: "8%", delay: 0, color: "text-blue-500" },
-  { Icon: Smartphone, top: "25%", right: "6%", delay: 0.5, color: "text-indigo-500" },
-  { Icon: Palette, top: "65%", left: "5%", delay: 1, color: "text-purple-500" },
-  { Icon: Globe, top: "70%", right: "8%", delay: 1.5, color: "text-blue-400" },
-  { Icon: Database, top: "40%", left: "3%", delay: 0.8, color: "text-cyan-500" },
-  { Icon: Layers, top: "45%", right: "4%", delay: 1.2, color: "text-blue-600" },
+  { Icon: Code2,      top: "15%", left: "8%",  delay: 0,   color: "text-blue-500" },
+  { Icon: Smartphone, top: "25%", right: "6%", delay: 0.5, color: "text-indigo-400" },
+  { Icon: Palette,    top: "65%", left: "5%",  delay: 1,   color: "text-purple-400" },
+  { Icon: Globe,      top: "70%", right: "8%", delay: 1.5, color: "text-blue-400" },
+  { Icon: Database,   top: "40%", left: "3%",  delay: 0.8, color: "text-cyan-400" },
+  { Icon: Layers,     top: "45%", right: "4%", delay: 1.2, color: "text-blue-500" },
 ];
 
 const stats = [
-  { value: "5+", label: "Projects Done" },
-  { value: "3+", label: "Happy Clients" },
-  { value: "3", label: "Years Experience" },
+  { value: "5+",  label: "Projects Done" },
+  { value: "3+",  label: "Happy Clients" },
+  { value: "3",   label: "Years Experience" },
   { value: "10+", label: "Technologies" },
 ];
 
 export default function Hero() {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="home"
@@ -47,7 +35,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-3xl blob-animation-delay pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-3xl blob-animation-delay2 pointer-events-none" />
 
-      {/* Floating icons */}
+      {/* Floating icons — desktop only */}
       {floatingIcons.map(({ Icon, top, left, right, delay, color }, i) => (
         <motion.div
           key={i}
@@ -61,9 +49,10 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — Text */}
+
+          {/* ── Left: text ── */}
           <div className="order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -93,11 +82,11 @@ export default function Hero() {
             >
               <TypeAnimation
                 sequence={[
-                  "Software Engineer", 2000,
+                  "Software Engineer",    2000,
                   "Full-Stack Developer", 2000,
                   "Mobile App Developer", 2000,
-                  "UI/UX Designer", 2000,
-                  "Graphic Designer", 2000,
+                  "UI/UX Designer",       2000,
+                  "Graphic Designer",     2000,
                 ]}
                 wrapper="span"
                 speed={50}
@@ -115,7 +104,7 @@ export default function Hero() {
               Build Websites. Develop Mobile Apps. Create Powerful Software.
               Design Amazing Brands.
               <br />
-              <span className="text-blue-600 font-medium">
+              <span className="text-blue-600 font-semibold">
                 Transforming Your Vision into Innovative Digital Solutions.
               </span>
             </motion.p>
@@ -127,16 +116,16 @@ export default function Hero() {
               className="flex flex-wrap gap-4 mb-10"
             >
               <button
-                onClick={() => scrollTo("contact")}
+                onClick={() => scrollTo("#contact")}
                 className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 pulse-glow"
               >
                 Hire Me <ArrowRight size={18} />
               </button>
               <button
-                onClick={() => scrollTo("portfolio")}
+                onClick={() => scrollTo("#portfolio")}
                 className="flex items-center gap-2 px-7 py-3.5 rounded-xl gradient-border text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:-translate-y-0.5"
               >
-                View My Work <Download size={18} />
+                View My Work <Eye size={18} />
               </button>
             </motion.div>
 
@@ -147,11 +136,11 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.75 }}
               className="flex items-center gap-4"
             >
-              <span className="text-sm text-gray-500 dark:text-gray-400">Find me on:</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">Find me on:</span>
               {[
-                { Icon: Github, href: "https://github.com", label: "GitHub" },
-                { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { Icon: MessageCircle, href: "https://wa.me/237679911937", label: "WhatsApp" },
+                { Icon: Github,        href: "https://github.com/che99510-arch",       label: "GitHub" },
+                { Icon: Linkedin,      href: "https://linkedin.com",                   label: "LinkedIn" },
+                { Icon: MessageCircle, href: "https://wa.me/237679911937",             label: "WhatsApp" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -159,7 +148,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-lg glass flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-600 hover:border-blue-500/50 transition-all hover:-translate-y-0.5"
+                  className="w-10 h-10 rounded-lg glass flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-600 hover:scale-110 transition-all"
                 >
                   <Icon size={18} />
                 </a>
@@ -167,14 +156,14 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Avatar + stats */}
+          {/* ── Right: photo + stats ── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
             className="order-1 lg:order-2 flex flex-col items-center gap-8"
           >
-            {/* Avatar card */}
+            {/* Photo */}
             <div className="relative">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-600/30 to-indigo-600/20 blur-2xl scale-110" />
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden gradient-border shadow-2xl">
@@ -187,7 +176,7 @@ export default function Hero() {
                   sizes="(max-width: 640px) 256px, 320px"
                 />
               </div>
-              {/* Badge */}
+              {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -207,7 +196,7 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3 w-full">
               {stats.map((s, i) => (
                 <motion.div
                   key={s.label}
@@ -217,7 +206,7 @@ export default function Hero() {
                   className="text-center p-4 glass rounded-xl card-hover"
                 >
                   <p className="text-2xl font-black gradient-text">{s.value}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">{s.label}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium leading-tight">{s.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -232,7 +221,7 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400"
       >
-        <span className="text-xs font-medium">Scroll down</span>
+        <span className="text-xs font-medium tracking-wide">Scroll down</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

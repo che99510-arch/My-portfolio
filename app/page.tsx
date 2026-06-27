@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
 import Technologies from "./components/Technologies";
 import WhyChooseMe from "./components/WhyChooseMe";
@@ -20,7 +19,6 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        <Portfolio />
         <Skills />
         <Technologies />
         <WhyChooseMe />
