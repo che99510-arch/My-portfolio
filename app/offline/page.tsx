@@ -125,7 +125,7 @@ export default function OfflinePage() {
             Please check your internet connection and try again.
             Some content may still be available from cache.
           </p>
-          <a className="btn" href="/" onClick="window.location.reload()">
+          <a className="btn" href="/" onClick={() => window.location.reload()}>
             <span className="pulse" />
             Try Again
           </a>
