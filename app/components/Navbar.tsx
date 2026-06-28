@@ -4,20 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { NAV_LINKS } from "../lib/constants";
+import { useTheme } from "./ThemeProvider";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { resolvedTheme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+  const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,13 +29,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleDark = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
 
   const go = (href: string) => {
     setMobileOpen(false);
@@ -60,7 +48,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
 
-          {/* ── Logo ── */}
+          {/* Logo */}
           <button
             onClick={() => go("#home")}
             className="shrink-0 flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg"
@@ -81,7 +69,7 @@ export default function Navbar() {
             </span>
           </button>
 
-          {/* ── Desktop nav — evenly spaced ── */}
+          {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-2 flex-1 justify-center">
             {NAV_LINKS.map((link) => {
               const id = link.href.replace("#", "");
@@ -103,14 +91,14 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* ── Actions ── */}
+          {/* Actions */}
           <div className="flex items-center gap-2 shrink-0">
             <button
-              onClick={toggleDark}
+              onClick={toggleTheme}
               className="w-9 h-9 rounded-lg bg-white/15 border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition-colors"
-              aria-label="Toggle dark mode"
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {dark ? <Sun size={17} /> : <Moon size={17} />}
+              {isDark ? <Sun size={17} /> : <Moon size={17} />}
             </button>
             <button
               onClick={() => go("#contact")}
@@ -129,7 +117,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* ── Mobile menu ── */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
