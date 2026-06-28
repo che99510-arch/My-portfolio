@@ -1,3 +1,5 @@
+"use client";
+
 export default function OfflinePage() {
   return (
     <html lang="en">
@@ -39,12 +41,12 @@ export default function OfflinePage() {
             font-size: 1.5rem;
             font-weight: 900;
             color: #111827;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.5px;
           }
           .brand span { color: #2563EB; }
           .icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
           }
           h1 {
@@ -125,10 +127,13 @@ export default function OfflinePage() {
             Please check your internet connection and try again.
             Some content may still be available from cache.
           </p>
-          <a className="btn" href="/" onClick={() => window.location.reload()}>
+          <button
+            className="btn"
+            onClick={() => window.location.reload()}
+          >
             <span className="pulse" />
             Try Again
-          </a>
+          </button>
           <div className="bar"><div className="bar-inner" /></div>
         </div>
       </body>
