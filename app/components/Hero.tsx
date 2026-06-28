@@ -49,7 +49,7 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* ── Left: text ── */}
@@ -117,15 +117,15 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollTo("#contact")}
-                className="flex items-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 pulse-glow"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 pulse-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
-                Hire Me <ArrowRight size={18} />
+                Hire Me <ArrowRight size={17} />
               </button>
               <button
-                onClick={() => scrollTo("#portfolio")}
-                className="flex items-center gap-2 px-7 py-3.5 rounded-xl gradient-border text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:-translate-y-0.5"
+                onClick={() => scrollTo("#services")}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl gradient-border text-blue-600 dark:text-blue-400 text-sm font-bold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
-                View My Work <Eye size={18} />
+                View My Work <Eye size={17} />
               </button>
             </motion.div>
 

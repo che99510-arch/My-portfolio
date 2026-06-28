@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Briefcase, GraduationCap, Heart, CheckCircle2 } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeader from "./SectionHeader";
@@ -30,12 +31,31 @@ export default function About() {
         </FadeIn>
 
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
-          {/* Left — code visual */}
+          {/* Left — brand visual */}
           <FadeIn delay={0.1}>
             <div className="relative">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-600/20 to-indigo-600/10 blur-2xl" />
               <div className="relative rounded-3xl overflow-hidden gradient-border shadow-2xl">
                 <div className="bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] p-6 sm:p-10">
+
+                  {/* Logo + brand identity block */}
+                  <div className="flex flex-col items-center gap-4 mb-6">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden bg-white/15 border-2 border-white/30 shadow-2xl flex items-center justify-center">
+                      <Image
+                        src="/logodesign.jpeg"
+                        alt="Mike Software Logo"
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-white font-black text-xl tracking-tight">Mike Software</h3>
+                      <p className="text-blue-200 text-sm mt-0.5">Software Engineer · Designer · Creator</p>
+                    </div>
+                  </div>
+
+                  {/* Code snippet */}
                   <div className="bg-[#0f1629]/80 rounded-2xl p-5 font-mono text-sm mb-5">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -48,17 +68,14 @@ export default function About() {
                       <p className="pl-4"><span className="text-green-400">name</span>: <span className="text-yellow-300">&quot;Mike Software&quot;</span>,</p>
                       <p className="pl-4"><span className="text-green-400">role</span>: <span className="text-yellow-300">&quot;Software Engineer&quot;</span>,</p>
                       <p className="pl-4"><span className="text-green-400">location</span>: <span className="text-yellow-300">&quot;Cameroon 🇨🇲&quot;</span>,</p>
-                      <p className="pl-4"><span className="text-green-400">skills</span>: [</p>
-                      <p className="pl-8"><span className="text-yellow-300">&quot;Full-Stack Dev&quot;</span>,</p>
-                      <p className="pl-8"><span className="text-yellow-300">&quot;Mobile Apps&quot;</span>,</p>
-                      <p className="pl-8"><span className="text-yellow-300">&quot;UI/UX Design&quot;</span>,</p>
-                      <p className="pl-8"><span className="text-yellow-300">&quot;Graphic Design&quot;</span></p>
-                      <p className="pl-4">],</p>
+                      <p className="pl-4"><span className="text-green-400">skills</span>: [<span className="text-yellow-300">&quot;Web&quot;</span>, <span className="text-yellow-300">&quot;Mobile&quot;</span>, <span className="text-yellow-300">&quot;Design&quot;</span>],</p>
                       <p className="pl-4"><span className="text-green-400">passion</span>: <span className="text-yellow-300">&quot;Building amazing things&quot;</span></p>
                       <p>{"}"}</p>
                       <p className="mt-3 text-gray-500">// Always learning, always building</p>
                     </div>
                   </div>
+
+                  {/* Trait cards */}
                   <div className="grid grid-cols-3 gap-3">
                     {cards.map(({ Icon, title, desc, color }) => (
                       <div key={title} className="bg-white/10 rounded-xl p-3 text-center">
@@ -70,6 +87,7 @@ export default function About() {
                       </div>
                     ))}
                   </div>
+
                 </div>
               </div>
             </div>
@@ -101,15 +119,15 @@ export default function About() {
               <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => scrollTo("#contact")}
-                  className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   Get In Touch
                 </button>
                 <button
-                  onClick={() => scrollTo("#portfolio")}
-                  className="px-6 py-3 rounded-xl gradient-border text-blue-600 dark:text-blue-400 font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:-translate-y-0.5"
+                  onClick={() => scrollTo("#services")}
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl gradient-border text-blue-600 dark:text-blue-400 text-sm font-bold hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
-                  My Portfolio
+                  View Services
                 </button>
               </div>
             </div>

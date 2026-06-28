@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Instagram, MessageCircle, Code2, Heart, ArrowUp } from "lucide-react";
+import { Linkedin, Instagram, MessageCircle, Heart, ArrowUp, Github } from "lucide-react";
+import Image from "next/image";
 import { NAV_LINKS, scrollTo } from "../lib/constants";
 
 const social = [
@@ -31,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0a1628] text-white overflow-hidden">
-      <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-blue-600 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-600 to-transparent" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -40,11 +41,11 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg">
-                <Code2 size={19} className="text-white" />
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-blue-900/40 border border-blue-500/30 flex items-center justify-center shadow-lg">
+                <Image src="/logodesign.jpeg" alt="Mike Software Logo" width={40} height={40} className="object-contain w-full h-full" />
               </div>
-              <span className="text-xl font-black">
+              <span className="text-xl font-black text-white leading-none">
                 Mike<span className="text-blue-400">Software</span>
               </span>
             </div>
@@ -63,7 +64,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   whileHover={{ scale: 1.15, y: -2 }}
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-900/30 transition-colors"
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all"
                 >
                   <Icon size={16} />
                 </motion.a>
@@ -116,7 +117,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Back to top — only visible after scrolling down */}
+      {/* Back to top */}
       <AnimatePresence>
         {showTop && (
           <motion.button

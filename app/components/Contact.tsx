@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import FadeIn from "./FadeIn";
@@ -63,8 +64,8 @@ export default function Contact() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
             <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4">
-                  <MessageCircle size={22} className="text-white" />
+                <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white/20 border border-white/30 shadow-lg mb-4 flex items-center justify-center">
+                  <Image src="/logodesign.jpeg" alt="Mike Software Logo" width={56} height={56} className="object-contain w-full h-full" />
                 </div>
                 <h3 className="text-2xl font-black mb-1">Mike Software</h3>
                 <p className="text-blue-100 text-sm">Software Engineer | Web &amp; Graphic Designer</p>
@@ -74,7 +75,7 @@ export default function Contact() {
                 href="https://wa.me/237679911937"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
+                className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-blue-700 text-sm font-bold hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-0.5 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 <MessageCircle size={17} />
                 Chat on WhatsApp

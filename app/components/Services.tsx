@@ -91,7 +91,7 @@ export default function Services() {
               </p>
               <button
                 onClick={() => scrollTo("#contact")}
-                className="px-8 py-3.5 rounded-xl bg-white text-blue-700 font-bold hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-white text-blue-700 text-sm font-bold hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
               >
                 Start a Project
               </button>
