@@ -1,5 +1,5 @@
-// Mike Software Service Worker v1.0
-const CACHE_NAME = "mike-software-v1";
+// Mike Software Service Worker v2.0
+const CACHE_NAME = "mike-software-v2";
 const OFFLINE_URL = "/offline";
 
 // Assets to pre-cache on install
